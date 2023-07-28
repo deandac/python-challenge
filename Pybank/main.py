@@ -18,10 +18,10 @@ with open(csvpath, encoding='UTF-8') as csvfile:
     header = next(csvreader)
     firstrow = next(csvreader)
     total_months = 1
-#Part 2
+    #Part 2
     net_total = int(firstrow[1])
 
-#Part3
+    #Part3
 
     previous_profit_loss = int(firstrow[1])
     for row in csvreader:
@@ -30,17 +30,17 @@ with open(csvpath, encoding='UTF-8') as csvfile:
         net_change = int(row[1]) - previous_profit_loss
         net_change_list.append(net_change)
         previous_profit_loss = int(row[1])
+        # Part 4
+        # track the greatest increase in profits
         if net_change > greatest_increase_amount:
             greatest_increase_amount = net_change
             greatest_increase_month = row[0]
+        #Part 5
+        # track the greatest decrease in profits
         if net_change < greatest_decrease_amount:
             greatest_decrease_amount = net_change
             greatest_decrease_month = row[0]
-# Part 4
-# Initialize variables to track the greatest increase in profits
 
-#Part 5
-# Initialize variables to track the greatest decrease in profits
 
 average_change = sum(net_change_list)/ len(net_change_list)
 print("Financial Analysis")
